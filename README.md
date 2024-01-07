@@ -1,4 +1,4 @@
-# ChatBot
+# Interactive Python-Based Chatbot
 
 **ChatBot** is an interactive Python-based chatbot that leverages various APIs to provide information on general knowledge, weather, mathematics, Wikipedia, and Wolfram Alpha queries. The chatbot is built using the [ChatterBot](https://chatterbot.readthedocs.io/) library for conversational AI.
 
