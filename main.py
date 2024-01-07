@@ -3,7 +3,7 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 import wikipediaapi
 import wolframalpha
 import requests
-import re  # Import the regular expression module
+import re 
 import os
 from dotenv import load_dotenv
 
@@ -18,23 +18,20 @@ if not wolfram_alpha_api_key or not openweathermap_api_key:
     raise ValueError("API keys are missing. Check your .env file.")
 
 # Create a new chat bot
-chatbot = ChatBot('ImpressiveBot')
+chatbot = ChatBot('ChatBot')
 
-# Create a new trainer for the chat bot
+# Create a new trainer for the chatbot
 trainer = ChatterBotCorpusTrainer(chatbot)
 
-# Train the chat bot on English language data
+# Train the chatbot on English language data
 trainer.train('chatterbot.corpus.english')
 
 # Wikipedia API
-wiki_wiki = wikipediaapi.Wikipedia(language='en', extract_format=wikipediaapi.ExtractFormat.WIKI, user_agent='ImpressiveBot/1.0 (abiolaalalade)')
+wiki_wiki = wikipediaapi.Wikipedia(language='en', extract_format=wikipediaapi.ExtractFormat.WIKI, user_agent='ChatBot/1.0 (abiolaalalade)')
 
 # Wolfram Alpha API key (replace 'YOUR_APP_ID' with your actual Wolfram Alpha app ID)
-#app_id = '2YJK67-UQK7LQYVYW'
 wolfram_alpha = wolframalpha.Client(wolfram_alpha_api_key)
 
-# OpenWeatherMap API key (replace 'YOUR_API_KEY' with your actual API key)
-#weather_api_key = '72df561ab6e3a524e049a2d7153a6c42'
 
 # Function to get information from Wikipedia
 def get_wikipedia_summary(query):
@@ -52,7 +49,6 @@ def get_wolfram_alpha_result(query):
     except StopIteration:
         return "I couldn't find information on that topic. Can you ask something else?"
 
-# Function to get weather information
 # Function to get detailed weather information in Fahrenheit
 def get_weather(city):
     base_url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={openweathermap_api_key}&units=imperial'
@@ -80,14 +76,14 @@ def calculate_math_expression(expression):
 
 # Define a function for chatting with the bot
 def chat_with_bot():
-    print("ImpressiveBot: Hello! I'm here to impress you. Ask me anything, and I'll do my best to provide information.")
+    print("ChatBot: Hello! I'm here to impress you. Ask me anything, and I'll do my best to provide information.")
 
     while True:
         user_input = input("You: ")
         response = ""  # Initialize response variable
 
         if user_input.lower() == 'exit':
-            print("ImpressiveBot: Goodbye! It was impressive chatting with you.")
+            print("ChatBot: Goodbye! It was impressive chatting with you.")
             break
 
         elif 'capabilities' in user_input.lower() or 'what can you do' in user_input.lower():
@@ -116,7 +112,7 @@ def chat_with_bot():
         else:
             response = chatbot.get_response(user_input)
 
-        print("ImpressiveBot:", response)
+        print("ChatBot:", response)
 
 # Start the chat
 chat_with_bot()
