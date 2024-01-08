@@ -29,7 +29,7 @@ trainer.train('chatterbot.corpus.english')
 # Wikipedia API
 wiki_wiki = wikipediaapi.Wikipedia(language='en', extract_format=wikipediaapi.ExtractFormat.WIKI, user_agent='ChatBot/1.0 (abiolaalalade)')
 
-# Wolfram Alpha API key (replace 'YOUR_APP_ID' with your actual Wolfram Alpha app ID)
+# Wolfram Alpha API key
 wolfram_alpha = wolframalpha.Client(wolfram_alpha_api_key)
 
 
